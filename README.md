@@ -15,8 +15,9 @@ driver.py -------> driver.py contains is a driver code which controls all the ot
 To run the game save the modules in a file open command prompt or terminal and then execute the driver.py
 
 
-***Update:
-1.Loading of a new deck of cards after its exhausting is fixed in this update.***
+***Update:***
+
+***Loading of a new deck of cards after its exhausting is fixed in this update.***
 
 
 
