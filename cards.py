@@ -2,17 +2,19 @@ import random
 from create import *
 class Cards(Create_cards):
     create = Create_cards()
-    deck = create.create_a_deck()
+    pack_of_cards = create.create_a_deck()
 
-    random.shuffle(deck)
+    def __init__(self):
+        self.deck = Cards.pack_of_cards[:]
+        random.shuffle(self.deck)
     #print(deck)    
     
     def Deal_out(self):
-        self.card = Cards.deck.pop()
+        self.card = self.deck.pop()
         return self.card
 
     def Hit(self):
-        self.card = Cards.deck.pop()
+        self.card = self.deck.pop()
         return self.card
 
     def Stay(self):

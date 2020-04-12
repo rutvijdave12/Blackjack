@@ -6,8 +6,8 @@ class Computer:
 
     def Display_comp_cards(self):
         print("Computer's cards are: ",end="" )
-        for i in Computer.card_list:
-            print(i,end=" ")
+        for i,j in Computer.card_list:
+            print(i,end="|")
 
     def check(self,comp_card_value):
         if comp_card_value<17:

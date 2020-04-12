@@ -3,7 +3,7 @@ from results import *
 from cards import *
 from computer import *
 
-def prompt():        
+def prompt():         
     command = input("Type yes if you want to play again, no to exit: ")
     command = command.upper()
     return command
@@ -15,9 +15,25 @@ def Play():
     comp = Computer()
 
     while True:
+        if len(cards1.deck) < 20:
+            # print(len(Cards.deck))
+            # print(len(cards1.deck))
+            print("Deck Exhausted...")
+            print("Creating a new deck of cards...")
+            print("Shuffling Cards...")
+            cards1 = Cards()
+            # print(len(Cards.deck))
+            # print(len(cards1.deck))
+
         result = Results()
+        print(player1.name+ " your balance is: "+str(player1.balance))
         player1.Place_a_bet()
         blackjack_in_two = False
+
+        # print(Cards.deck)
+        # print()
+        # print(cards1.deck) 
+
 
         for i in range(2):
             player1.Player_cards(cards1.Deal_out())
@@ -25,7 +41,7 @@ def Play():
             comp.Comp_cards(cards1.Deal_out())
         player1.Display_cards()
         print()
-        print(str(Computer.card_list[0])+ " is one of the cards of the dealer")
+        print(str(Computer.card_list[0][0])+ " is one of the cards of the dealer")
 
         player1_card_lst = result.Decipher(player1.card_list)
         player1_final_value = result.total_check(sum(player1_card_lst),player1_card_lst)
@@ -104,14 +120,24 @@ def Play():
                     player1.result()
                 break
                 
-
-        command = prompt()        
+        while True:
+            if player1.balance == 0:
+                print(player1.name+ " you don't have enough coins to play!")
+                command = "NO"
+                break
+            else:
+                command = prompt() 
+            if command in ["YES","NO"]:
+                break
+            else:
+                continue      
         # command = input("Type yes if you want to play again, no to exit: ")
         # command = command.upper()
         if command == "YES":
             player1.reset()
             comp.reset()
-            print("\n"*20)  
+            print("\n"*20) 
+
             continue
         elif command == "NO":
             break

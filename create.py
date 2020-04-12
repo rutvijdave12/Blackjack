@@ -1,15 +1,16 @@
 class Create_cards:
+    deck = []
     def create_a_deck(self):
-        deck = []
+        #deck = []
         for suit in ['Hearts','Spades','Clubs','Diamonds']:
             for value in range(1,11):
                 if value == 1:
-                    deck.append(('Ace'+ ' of '+ suit,(1,11)))
+                    Create_cards.deck.append(('Ace'+ ' of '+ suit,(1,11)))
                 else:    
-                    deck.append((str(value) + ' of ' + suit,value))
+                    Create_cards.deck.append((str(value) + ' of ' + suit,value))
             for face in ['Joker','Queen','King']:
-                    deck.append((face + ' of ' + suit,10))   
-        return deck 
+                    Create_cards.deck.append((face + ' of ' + suit,10))   
+        return Create_cards.deck 
            
 
    
